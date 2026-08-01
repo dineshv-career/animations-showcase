@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+.rectangle {
+  width: 64px;
+  height: 170px;
+  margin: 30px auto;
+  border: 1px solid #000000;
+  position: relative;
+  background-color: #ffccd4;
+  z-index: -1;
+}
+
+.main-container {
+  text-align: center;
+}
+
+.circle {
+  position: absolute;
+  top: 135px;
+  right: -30px;
+  height: 115px;
+  width: 120px;
+  border-radius: 50%;
+  border: 1px solid #000000;
+  shape-outside: circle();
+  background: #ffffff;
+}
+
+.pendulum {
+  position: relative;
+  z-index: 1;
+}
+
+.square {
+  height: 58px;
+  width: 58px;
+  left: 3px;
+  position: relative;
+  background-color: #808080;
+  animation: move 1s linear infinite alternate;
+}
+
+.stick {
+  height: 120px;
+  width: 8px;
+  top: 45px;
+  z-index: -1;
+  margin: 0 auto;
+  left: 28px;
+  background-color: #808080;
+  transform-origin: center top;
+  animation: pendulum 2s linear infinite;
+}
+
+.shape {
+  height: 30px;
+  width: 70px;
+  top: 42px;
+  left: 45px;
+  position: absolute;
+  z-index: 2;
+  border-radius: 60px;
+  background-color: hsl(0, 0%, 0%);
+  animation: rotation-new linear 2s infinite;
+  transform-origin: 20% 50%;
+}
+
+@keyframes move {
+  0% {
+    top: 15px;
+  }
+
+  100% {
+    top: 65px;
+  }
+}
+
+@keyframes rotation-new {
+  0% {
+    transform: rotate(-90deg);
+  }
+
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes pendulum {
+  from {
+    transform: translateY(-25px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(30px) rotate(-22deg);
+  }
+
+  50% {
+    transform: translateY(60px) rotate(0deg);
+  }
+
+  75% {
+    transform: translateY(30px) rotate(22deg);
+  }
+
+  to {
+    transform: translateY(-25px) rotate(0deg);
+  }
+}
